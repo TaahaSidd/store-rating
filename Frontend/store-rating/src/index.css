@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Spica Labs Light Palette */
+  --bg: #ffffff;
+  --text: #475569;
+  --text-h: #0f172a;
+  --border: #e2e8f0;
+  --code-bg: #f8fafc;
+
+  /* Vibrant Deep Indigo Accent Elements */
+  --accent: #4f46e5;
+  --accent-bg: rgba(79, 70, 229, 0.08);
+  --accent-border: rgba(79, 70, 229, 0.3);
+  --social-bg: #f1f5f9;
+  --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+
+  /* Clean Inter/Segoe Typography */
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  font: 16px/160% var(--sans);
+  letter-spacing: -0.01em;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Seamless Slate Dark Palette */
+    --bg: #090d16;
+    --text: #94a3b8;
+    --text-h: #f8fafc;
+    --border: #1e293b;
+    --code-bg: #111827;
+
+    /* Neon Indigo Highlights */
+    --accent: #818cf8;
+    --accent-bg: rgba(129, 140, 248, 0.12);
+    --accent-border: rgba(129, 140, 248, 0.4);
+    --social-bg: #1e293b;
+    --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(1.8);
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  /* Shifted from center to left for standard dashboard scannability */
+  border-inline: 1px solid var(--border);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: var(--bg);
+}
+
+/* Typography Matrix Improvements */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--heading);
+  font-weight: 700;
+  /* Bumped to 700 for clearer editorial hierarchy */
+  color: var(--text-h);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 110%;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 32px;
+    padding-inline: 16px;
+  }
+
+  #root {
+    border-inline: none;
+    /* Drop containing border frames on mobile viewports */
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 125%;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-bottom: 16px;
+  line-height: 170%;
+}
+
+/* Functional Code Token Badges */
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 8px;
+}
